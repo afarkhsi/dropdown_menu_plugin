@@ -1,4 +1,4 @@
-# Select-component-libraryA library of React components created using `create-react-app`.
+# Select-component-library library of React components created using `create-react-app`.
 
 ## Description:
 
