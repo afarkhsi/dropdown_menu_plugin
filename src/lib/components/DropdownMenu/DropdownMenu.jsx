@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './style.css';
 
-const SelectInput = ({ id, options, reset, label, placeholder }) => {
+const DropdownMenu = ({ id, options, reset, label, placeholder }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selected, setSelected] = useState(null);
   const dropdownRef = useRef(null);
@@ -13,6 +13,7 @@ const SelectInput = ({ id, options, reset, label, placeholder }) => {
   const handleOnClick = (item) => {
     setSelected(item);
     setIsOpen(false);
+    console.log(item);
   };
 
   useEffect(() => {
@@ -21,7 +22,6 @@ const SelectInput = ({ id, options, reset, label, placeholder }) => {
 
   return (
     <div
-      ref={dropdownRef}
       className="select-menu"
       aria-label="toggle select"
       id={id}
@@ -38,8 +38,42 @@ const SelectInput = ({ id, options, reset, label, placeholder }) => {
         <span className="select-menu_selected_text">
           {selected ? selected : placeholder}
         </span>
+
+        <span
+          {...(!isOpen
+            ? { className: 'arrow-down' }
+            : { className: 'arrow-up' })}
+        ></span>
       </button>
-      {isOpen ? (
+
+      <ul
+        {...(isOpen
+          ? { className: 'select-menu_list ' }
+          : { className: 'select-menu_list_hidden' })}
+        role="listbox"
+        aria-label="select menu options"
+        aria-expanded={isOpen}
+        ref={dropdownRef}
+        style={
+          isOpen
+            ? { height: dropdownRef.current.scrollHeight + 'px' }
+            : { height: '0px' }
+        }
+      >
+        {options.map((item) => (
+          <li
+            key={item.label}
+            onClick={() => handleOnClick(item?.value)}
+            // tabIndex={isOpen ? '0' : '-1'}
+            aria-label={item.label}
+            className="select-menu_list_item"
+            data-selected={selected === item}
+          >
+            <p>{item.value}</p>
+          </li>
+        ))}
+      </ul>
+      {/* {isOpen ? (
         <ul
           className="select-menu_list"
           role="listbox"
@@ -61,14 +95,14 @@ const SelectInput = ({ id, options, reset, label, placeholder }) => {
         </ul>
       ) : (
         ''
-      )}
+      )} */}
     </div>
   );
 };
-export default SelectInput;
+export default DropdownMenu;
 
 // //BASIC
-// const SelectInput = ({
+// const DropdownMenu = ({
 //   width,
 //   height,
 //   id,
@@ -114,4 +148,4 @@ export default SelectInput;
 //     </select>
 //   );
 // };
-// export default SelectInput;
+// export default DropdownMenu;
