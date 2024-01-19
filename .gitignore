@@ -2,8 +2,6 @@
 
 # files
 .gitignore
-/src/index.js
-/src/data.js
 
 # dependencies
 /node_modules
