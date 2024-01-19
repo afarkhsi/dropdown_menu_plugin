@@ -36,22 +36,17 @@ import React from 'react';
 //import the dropdown menu component
 import DropdownMenu from 'select-component-library';
 
-function DropDown(){
+function DropDown() {
+  const optionsExample = [
+    { label: 'Paris', value: 'paris' },
+    { label: 'Lille', value: 'lille' },
+    { label: 'Lyon', value: 'lyon' },
+    { label: 'Bordeaux', value: 'bordeaux' },
+    { label: 'Marseille', value: 'marseille' },
+    { label: 'Reims', value: 'reims' },
+  ];
 
-    const optionsExample = [
-        { label: 'Paris', value: 'paris'},
-        { label: 'Lille', value: 'lille'},
-        { label: 'Lyon', value: 'lyon'}
-        { label: 'Bordeaux', value: 'bordeaux'},
-        { label: 'Marseille', value: 'marseille'},
-        { label: 'Reims', value: 'reims'}
-   ];
-
-    return (
-        <DropdownMenu
-        options={optionsExample}
-        />
-    );
+  return <DropdownMenu options={optionsExample} />;
 }
 
 export default DropDown;

@@ -1,3 +1,3 @@
-import SelectMenu from './components/DropdownMenu/SelectInput';
+import DropdownMenu from './components/DropdownMenu/SelectInput';
 
-export { SelectMenu };
+export { DropdownMenu };
