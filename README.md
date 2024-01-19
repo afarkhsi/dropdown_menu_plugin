@@ -17,7 +17,8 @@ A simple React dropdown menu component
 ### Package installation
 
 Run the followings commands:
-$ npm install dropdown-component-library`
+
+    $ npm install dropdown-component-library`
 or
     $ yarn add dropdown-component-library`
 
