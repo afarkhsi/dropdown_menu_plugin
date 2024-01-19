@@ -18,8 +18,8 @@ A simple React dropdown menu component
 
 Run the followings commands with npm or yarn:
 
-    $ npm install dropdown-component-library
-    $ yarn add dropdown-component-library
+    $ npm install dropdown-component-library-afarkhsi
+    $ yarn add dropdown-component-library-afarkhsi
 
 ### Import the dropdown menu
 
