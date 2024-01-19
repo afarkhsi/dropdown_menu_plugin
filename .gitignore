@@ -1,11 +1,14 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+# files
+.gitignore
+/src/index.js
+/src/data.js
+
 # dependencies
 /node_modules
 /.pnp
 .pnp.js
-/src/index.js
-/src/data.js
 
 # testing
 /coverage
