@@ -16,11 +16,10 @@ A simple React dropdown menu component
 
 ### Package installation
 
-Run the followings commands:
+Run the followings commands with npm or yarn:
 
-    $ npm install dropdown-component-library`
-or
-    $ yarn add dropdown-component-library`
+    $ npm install dropdown-component-library
+    $ yarn add dropdown-component-library
 
 ### Import the dropdown menu
 
