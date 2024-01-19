@@ -16,6 +16,12 @@ const DropdownMenu = ({ id, options, reset, label, placeholder }) => {
     console.log(item);
   };
 
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      e.currentTarget.click();
+    }
+  };
+
   useEffect(() => {
     setSelected(null);
   }, [reset]);
@@ -27,12 +33,13 @@ const DropdownMenu = ({ id, options, reset, label, placeholder }) => {
       id={id}
       label={label}
     >
-      <button
+      <div
         {...(isOpen
           ? { className: 'select-menu_selected_open ' }
           : { className: 'select-menu_selected' })}
         aria-label="select menu selected"
         onClick={toggleSelect}
+        onKeyDown={handleKeyDown}
         tabIndex="0"
       >
         <span className="select-menu_selected_text">
@@ -44,7 +51,7 @@ const DropdownMenu = ({ id, options, reset, label, placeholder }) => {
             ? { className: 'arrow-down' }
             : { className: 'arrow-up' })}
         ></span>
-      </button>
+      </div>
 
       <ul
         {...(isOpen

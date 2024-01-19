@@ -1,7 +1,8 @@
 {
   "name": "dropdown-component-library",
-  "author": "Abdourrahman Farkhsi",
+  "author": "afarkhsi",
   "version": "0.1.0",
+  "description": "A React dropdown menu component ",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -52,5 +53,12 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/afarkhsi/select_menu_plugin.git"
-  }
+  },
+  "keywords": [
+    "Dropdown menu",
+    "Dropdown",
+    "Select menu",
+    "React",
+    "Component"
+  ]
 }

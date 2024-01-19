@@ -1,4 +1,12 @@
-# Select-component-library library of React components created using `create-react-app`.
+# Select-component-library
+
+Library of React components created using `create-react-app`.
+
+## Prerequisites :
+
+- [Node.js](https://nodejs.org/en/)
+- `Npm` or `Yarn`
+- `Visual studio` code or similare
 
 ## Description:
 
@@ -9,11 +17,15 @@ A simple React dropdown menu component
 ### Package installation
 
 Run the followings commands:
-`npm install dropdown-component-library`
+$ npm install dropdown-component-library`
 or
-`yarn add dropdown-component-library`
+    $ yarn add dropdown-component-library`
 
 ### Import the dropdown menu
+
+```jsx
+import DropdownMenu from 'select-component-library';
+```
 
 ### Simple example of using:
 
@@ -22,7 +34,7 @@ To define the possible options on your dropdown menu you can pass an array with 
 ```jsx
 import React from 'react';
 //import the dropdown menu component
-import SelectMenu from 'select-component-library';
+import DropdownMenu from 'select-component-library';
 
 function DropDown(){
 
@@ -46,3 +58,10 @@ export default DropDown;
 ```
 
 ### Props
+
+|     Prop      |   Type   |               Description               |
+| :-----------: | :------: | :-------------------------------------: |
+|   `options`   | `Array`  |       Define the dropdown options       |
+|     `id`      | `string` |         Define the component id         |
+|    `label`    | `string` |       Define the component label        |
+| `placeholder` | `string` | Define the placeholder of the component |
