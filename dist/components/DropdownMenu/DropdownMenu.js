@@ -6,10 +6,13 @@ const DropdownMenu = ({
   options,
   reset,
   label,
-  placeholder
+  placeholder,
+  onChange,
+  defaultValue,
+  name
 }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selected, setSelected] = useState(null);
+  const [selected, setSelected] = useState('');
   const dropdownRef = useRef(null);
   const toggleSelect = () => {
     setIsOpen(!isOpen);
@@ -17,6 +20,10 @@ const DropdownMenu = ({
   const handleOnClick = item => {
     setSelected(item);
     setIsOpen(false);
+    const event = new CustomEvent('objetEnvoye', {
+      detail: item
+    });
+    window.dispatchEvent(event);
   };
   const handleKeyDown = e => {
     if (e.key === 'Enter') {
@@ -32,7 +39,7 @@ const DropdownMenu = ({
     id: id,
     label: label
   }, /*#__PURE__*/React.createElement("div", _extends({}, isOpen ? {
-    className: 'dropdown-menu_selected_open '
+    className: 'dropdown-menu_selected_open'
   } : {
     className: 'dropdown-menu_selected'
   }, {
@@ -40,9 +47,16 @@ const DropdownMenu = ({
     onClick: toggleSelect,
     onKeyDown: handleKeyDown,
     tabIndex: "0"
-  }), /*#__PURE__*/React.createElement("span", {
+  }), /*#__PURE__*/React.createElement("span", _extends({
     className: "dropdown-menu_selected_text"
-  }, selected ? selected : placeholder), /*#__PURE__*/React.createElement("span", !isOpen ? {
+  }, selected ? {
+    id: `selection_${id}`
+  } : {
+    id: ``
+  }, {
+    name: name,
+    defaultValue: defaultValue
+  }), selected ? selected : placeholder), /*#__PURE__*/React.createElement("span", !isOpen ? {
     className: 'arrow-down'
   } : {
     className: 'arrow-up'
@@ -64,6 +78,7 @@ const DropdownMenu = ({
     key: item.label,
     onClick: () => handleOnClick(item?.value),
     "aria-label": item.label,
+    onChange: onChange,
     className: "dropdown-menu_list_item",
     "data-selected": selected === item
   }, /*#__PURE__*/React.createElement("p", null, item.value)))));

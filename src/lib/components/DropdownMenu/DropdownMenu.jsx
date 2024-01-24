@@ -1,9 +1,18 @@
 import React, { useEffect, useRef, useState } from 'react';
 import '../style/style.css';
 
-const DropdownMenu = ({ id, options, reset, label, placeholder }) => {
+const DropdownMenu = ({
+  id,
+  options,
+  reset,
+  label,
+  placeholder,
+  onChange,
+  defaultValue,
+  name,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selected, setSelected] = useState(null);
+  const [selected, setSelected] = useState('');
   const dropdownRef = useRef(null);
 
   const toggleSelect = () => {
@@ -13,6 +22,8 @@ const DropdownMenu = ({ id, options, reset, label, placeholder }) => {
   const handleOnClick = (item) => {
     setSelected(item);
     setIsOpen(false);
+    const event = new CustomEvent('objetEnvoye', { detail: item });
+    window.dispatchEvent(event);
   };
 
   const handleKeyDown = (e) => {
@@ -34,14 +45,19 @@ const DropdownMenu = ({ id, options, reset, label, placeholder }) => {
     >
       <div
         {...(isOpen
-          ? { className: 'dropdown-menu_selected_open ' }
+          ? { className: 'dropdown-menu_selected_open' }
           : { className: 'dropdown-menu_selected' })}
         aria-label="dropdown menu selected"
         onClick={toggleSelect}
         onKeyDown={handleKeyDown}
         tabIndex="0"
       >
-        <span className="dropdown-menu_selected_text">
+        <span
+          className="dropdown-menu_selected_text"
+          {...(selected ? { id: `selection_${id}` } : { id: `` })}
+          name={name}
+          defaultValue={defaultValue}
+        >
           {selected ? selected : placeholder}
         </span>
 
@@ -71,6 +87,7 @@ const DropdownMenu = ({ id, options, reset, label, placeholder }) => {
             key={item.label}
             onClick={() => handleOnClick(item?.value)}
             aria-label={item.label}
+            onChange={onChange}
             className="dropdown-menu_list_item"
             data-selected={selected === item}
           >
