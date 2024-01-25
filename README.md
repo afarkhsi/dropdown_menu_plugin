@@ -54,9 +54,31 @@ export default DropDown;
 
 ### Props
 
-|     Prop      |   Type   |               Description               |
-| :-----------: | :------: | :-------------------------------------: |
-|   `options`   | `Array`  |       Define the dropdown options       |
-|     `id`      | `string` |         Define the component id         |
-|    `label`    | `string` |       Define the component label        |
-| `placeholder` | `string` | Define the placeholder of the component |
+|      Prop      |   Type   |               Description                |
+| :------------: | :------: | :--------------------------------------: |
+|   `options`    | `Array`  |       Define the dropdown options        |
+|      `id`      | `string` |         Define the component id          |
+|    `label`     | `string` |        Define the component label        |
+| `placeholder`  | `string` | Define the placeholder of the component  |
+| `defaultValue` | `string` | Define the defaultValue of the component |
+|     `name`     | `string` |     Define the name of the component     |
+
+### EventListener option
+
+If you need to retrieve the data displayed on the click menu you must add these lines of code and set your state in your function before calling the 'dropdownEvent' listener with your function as a second parameter.
+
+Example :
+
+```jsx
+const [data, setData] = useState();
+// Enclosing application
+function myFunction(event: any) {
+  // retrieve the object from the event
+  const objet = event.detail;
+  // Manipulate the object in the enclosing application
+  setData(objet);
+}
+
+// Ajout de l'écouteur d'événement dropdown
+window.addEventListener('dropdownEvent', myFunction);
+```

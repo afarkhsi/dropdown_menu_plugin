@@ -7,7 +7,6 @@ const DropdownMenu = ({
   reset,
   label,
   placeholder,
-  onChange,
   defaultValue,
   name,
 }) => {
@@ -22,7 +21,7 @@ const DropdownMenu = ({
   const handleOnClick = (item) => {
     setSelected(item);
     setIsOpen(false);
-    const event = new CustomEvent('objetEnvoye', { detail: item });
+    const event = new CustomEvent('dropdownEvent', { detail: item });
     window.dispatchEvent(event);
   };
 
@@ -87,7 +86,6 @@ const DropdownMenu = ({
             key={item.label}
             onClick={() => handleOnClick(item?.value)}
             aria-label={item.label}
-            onChange={onChange}
             className="dropdown-menu_list_item"
             data-selected={selected === item}
           >
