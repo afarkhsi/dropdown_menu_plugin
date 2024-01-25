@@ -24,7 +24,7 @@ Run the followings commands with npm or yarn:
 ### Import the dropdown menu
 
 ```jsx
-import DropdownMenu from 'select-component-library';
+import { DropdownMenu } from 'dropdown-component-library-afarkhsi';
 ```
 
 ### Simple example of using:
@@ -34,7 +34,7 @@ To define the possible options on your dropdown menu you can pass an array with 
 ```jsx
 import React from 'react';
 //import the dropdown menu component
-import DropdownMenu from 'select-component-library';
+import { DropdownMenu } from 'dropdown-component-library-afarkhsi';
 
 function DropDown() {
   const optionsExample = [

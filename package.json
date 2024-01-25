@@ -1,7 +1,7 @@
 {
   "name": "dropdown-component-library-afarkhsi",
   "author": "afarkhsi",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "description": "A React dropdown menu component ",
   "main": "dist/index.js",
   "module": "dist/index.js",
