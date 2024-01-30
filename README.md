@@ -1,4 +1,4 @@
-# Select-component-library
+# Dropdown-component-library
 
 Library of React components created using `create-react-app`.
 
@@ -79,6 +79,6 @@ function myFunction(event: any) {
   setData(objet);
 }
 
-// Ajout de l'écouteur d'événement dropdown
+// Adding the event listener dropdownEvent
 window.addEventListener('dropdownEvent', myFunction);
 ```
